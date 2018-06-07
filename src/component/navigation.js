@@ -1,18 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {Router, Route, Link } from "react-router-dom";
+import { history } from '../helpers'
 
 const NavigationLinks = () => (
-  <Router>
+  <Router history = {history}>
     <div className="navigation-links-container">
       <ul>
         <li style={{style}}>
-          <Link to = "/">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to = "/dashboard">Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
-          <Link to = "/contacts">Contacts</Link>
+          <Link to="/contacts">Contacts</Link>
         </li>
       </ul>
     </div>
