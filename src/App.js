@@ -22,10 +22,10 @@ class App extends Component {
           <NavigationLinks />
         <Router history = {history} >
         <Switch>
+          <Route exact path="/" component={LoginPage} />
           <Route path="/home" component={HomePage} />
           <Route path="/dashboard" component={DashboardPage} />
           <Route path="/contact" component={ContactPage} />
-          <Route path="/" component={LoginPage} />
         </Switch>
         </Router>
 
