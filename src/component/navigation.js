@@ -6,7 +6,7 @@ const NavigationLinks = () => (
   <Router history = {history}>
     <div className="navigation-links-container">
       <ul>
-        <li style={{style}}>
+        <li style={style}>
           <Link to="/">Home</Link>
         </li>
         <li>
