@@ -13,7 +13,7 @@ const NavigationLinks = () => (
           <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
-          <Link to="/contacts">Contacts</Link>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </div>
