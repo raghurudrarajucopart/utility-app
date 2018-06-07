@@ -4,14 +4,15 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 60px;
+  float: left;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  height: 60px;
+  padding: 10px;
+  color: grey;
 }
 
 .App-title {
@@ -26,3 +27,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* navigation-links-container */
+
+.navigation-links-container {
+  margin-top: 50px;
+}
+
+.navigation-links-container ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 5px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  background-color: lightgrey;
+  margin: 0 15px;
+  box-shadow: 2px 5px 10px indianred;
+}
+
+.navigation-links-container ul li a{
+  text-decoration: none;
+}
+
+
+
+/* */
