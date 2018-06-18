@@ -72,7 +72,7 @@ class LoginPage extends Component {
               </div>
             </form>
           </div>
-          <input type="Button" value="getUsers" onClick={this.handleUserList} />
+          <button onClick={this.handleUserList}>Get Users</button>
           { this.props.persons.map(person => <li key={person.name}>{person.name}</li>)}
       </div>
     )
