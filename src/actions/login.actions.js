@@ -12,16 +12,15 @@ export const loginActions = {
 function login(username, password) {
   return dispatch => {
     const requestOptions = {
-        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({"username": username, "password": password})
+        body: {"username": username, "password": password}
     };
 
-    axios('https://g-ops-qa4.copart.com/login', requestOptions)
+    axios.post('https://g-ops-qa4.copart.com/login', {"username": username, "password": password})
     .then(res => {
       const userDetails = res.data;
-      //this.setState({ userDetails })
       dispatch(success(userDetails));
+      history.push('/dashboard');
     })
     .catch(function (error) {
       console.log(error);
@@ -32,7 +31,7 @@ function login(username, password) {
 //});
   }
 
-  function success(userDetails) { return { type: "Login_Success", userDetails } }
+  function success(userDetails) { return { type: "Dashboard_Page", userDetails } }
   function failure(error) { return { type: "Login_Failure", error } }
 }
 
