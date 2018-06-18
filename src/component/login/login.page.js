@@ -62,17 +62,19 @@ class LoginPage extends Component {
           <div className="login-form-container">
             <form name="loginForm" onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <TextField required id="username" label="User Name" margin="normal" onChange={this.handleChange} />
+                <TextField required name="username" label="User Name" margin="normal" onChange={this.handleChange} />
               </div>
               <div className="form-group">
-                <TextField required id="password" label="Password" type="password" margin="normal" onChange={this.handleChange} />
+                <TextField required name="password" label="Password" type="password" margin="normal" onChange={this.handleChange} />
               </div>
               <div className="form-group">
-                <Button variant="contained" color="primary"> Submit </Button>
+                {/*<Button variant="contained" color="primary"> Submit </Button>*/}
+                <Button variant="contained" color="primary" onClick={this.handleSubmit}> Submit </Button>
+                {/*<button >Login</button>*/}
               </div>
             </form>
           </div>
-          <button onClick={this.handleUserList}>Get Users</button>
+          <input type="button" value="Get Users" onClick={this.handleUserList} />
           { this.props.persons.map(person => <li key={person.name}>{person.name}</li>)}
       </div>
     )
