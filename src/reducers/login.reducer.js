@@ -1,8 +1,5 @@
 import initialState from '../initialStates/login.js';
 
-// let user = JSON.parse(localStorage.getItem('user'));
-// const initialState = user ? { loggedIn: true, user } : {};
-
 export function login(state = initialState, action) {
   switch (action.type) {
     case "Login_Request": // Get_Details_Success
@@ -17,6 +14,5 @@ export function login(state = initialState, action) {
       return {};
     default:
       return state
-
   }
 }

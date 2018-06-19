@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { history } from '../helpers';
 
 export const loginActions = {
@@ -14,7 +13,7 @@ function login(username, password) {
         body: {"username": username, "password": password}
     };
 
-    axios.post('https://g-ops-qa4.copart.com/login', {"username": username, "password": password})
+    axios.post('https://g-ops-qa4.copart.com/login', requestOptions.body)
     .then(res => {
       const userDetails = res.data;
       dispatch(success(userDetails));
@@ -42,7 +41,7 @@ function users() {
       dispatch(failure(error));
     });
   }
-  
+
   function success(persons) { return { type: "Get_Details_Success", persons } }
   function failure(error) { return { type: "Get_Details_Failure", error } }
 

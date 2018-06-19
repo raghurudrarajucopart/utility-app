@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 import { Router, Route, Switch } from 'react-router-dom';
+
 import { history } from './helpers'
 import { store } from './store.js'
 import NavigationLinks from './component/navigation';
+
 import { LoginPage } from './component/login/login.page.js';
 import HomePage from './component/home/home.page';
 import { DashboardPage } from './component/dashboard/dashboard.page';

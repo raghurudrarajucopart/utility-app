@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { loginActions } from '../../actions/login.actions';
@@ -15,18 +13,11 @@ class LoginPage extends Component {
         username: '',
         password: '',
         submitted: false,
-        persons: [],
-        userDetails: {}
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUserList = this.handleUserList.bind(this);
-
-    // componentDidMount() {
-    //
-    // }
-
   }
 
   handleChange(e) {
@@ -35,16 +26,13 @@ class LoginPage extends Component {
   }
 
   handleSubmit(e) {
-
       e.preventDefault();
-
       this.setState({ submitted: true });
       const { username, password } = this.state;
       const { dispatch } = this.props;
       if (username && password) {
           dispatch(loginActions.login(username, password));
       }
-
   }
 
   handleUserList(e) {
@@ -68,9 +56,7 @@ class LoginPage extends Component {
                 <TextField required name="password" label="Password" type="password" margin="normal" onChange={this.handleChange} />
               </div>
               <div className="form-group">
-                {/*<Button variant="contained" color="primary"> Submit </Button>*/}
                 <Button variant="contained" color="primary" onClick={this.handleSubmit}> Submit </Button>
-                {/*<button >Login</button>*/}
               </div>
             </form>
           </div>
