@@ -13,6 +13,9 @@ const NavigationLinks = () => (
           <Link to="/dashboard">Dashboard</Link>
         </li>
         <li>
+          <Link to="/UIElements">UIElements</Link>
+        </li>
+        <li>
           <Link to="/contact">Contact</Link>
         </li>
       </ul>

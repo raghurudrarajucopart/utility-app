@@ -9,6 +9,7 @@ import NavigationLinks from './component/navigation';
 import { LoginPage } from './component/login/login.page.js';
 import HomePage from './component/home/home.page';
 import { DashboardPage } from './component/dashboard/dashboard.page';
+import { UIElementsPage } from './component/UIElements/UIElements.page';
 import ContactPage from './component/contact/contact.page';
 
 import logo from './logo2.png';
@@ -32,6 +33,7 @@ class App extends Component {
                 <Route exact path="/" component={LoginPage} />
                 <Route path="/home" component={HomePage} />
                 <Route path="/dashboard" component={DashboardPage} />
+                <Route path="/UIElements" component={UIElementsPage} />
                 <Route path="/contact" component={ContactPage} />
               </Switch>
               </Router>
