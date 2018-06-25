@@ -48,7 +48,7 @@ class LoginPage extends Component {
       <div className="login-page-container">
         <h2>LoginPage</h2>
           <div className="login-form-container">
-            <form name="loginForm" onSubmit={this.handleSubmit}>
+            <form name="loginForm">
               <div className="form-group">
                 <TextField required name="username" label="User Name" margin="normal" onChange={this.handleChange} />
               </div>

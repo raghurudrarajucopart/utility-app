@@ -20,7 +20,6 @@ function login(username, password) {
       history.push('/dashboard');
     })
     .catch(function (error) {
-      console.log(error);
       dispatch(failure(error));
     });
   }
