@@ -6,8 +6,22 @@ export function uielements(state=initialState, action) {
       return {
         users: action.data,
       };
+    case "getSelectedUsersSuccess":
+      return {
+        ...state,
+        selectedUsers: action.selectedUsers,
+        usersLength: action.usersLength,
+      };
+    case "getUsersLengthSuccess":
+      return {
+        usersLength: action.length
+      };
+    case "updateUserSuccess":
+      return state;
+    case "createUserSuccess":
+      return state;
     default:
-    return state;
+      return state;
 
   }
 }
