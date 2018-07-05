@@ -33,7 +33,9 @@ class Header extends Component{
 
   componentWillMount() {
     const userSelectedLang = localStorage.getItem('userSelectedLang');
-    this.setState({ "selectedLang": JSON.parse(userSelectedLang).selectedLang, "selectedLangCode": JSON.parse(userSelectedLang).selectedLangCode });
+    if(userSelectedLang && JSON.parse(userSelectedLang).selectedLang && JSON.parse(userSelectedLang).selectedLangCode) {
+      this.setState({ "selectedLang": JSON.parse(userSelectedLang).selectedLang, "selectedLangCode": JSON.parse(userSelectedLang).selectedLangCode });
+    }
   }
 
   handleClickOpen = () => {
@@ -57,7 +59,7 @@ class Header extends Component{
   handleMenuClose = () => {
     this.setState({ anchorEl: null });
   };
-  
+
   render() {
     const { anchorEl } = this.state;
     const languageButtonStyle = {
