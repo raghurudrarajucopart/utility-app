@@ -6,6 +6,7 @@ import { history } from './helpers'
 import { store } from './store.js'
 import NavigationLinks from './component/navigation';
 
+import Header from './component/header.js';
 import { LoginPage } from './component/login/login.page.js';
 import HomePage from './component/home/home.page';
 import { DashboardPage } from './component/dashboard/dashboard.page';
@@ -19,10 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Utility Application</h1>
-        </header>
+        <Header/>
         <div className="App-intro">
           <NavigationLinks />
         <div className="content">
