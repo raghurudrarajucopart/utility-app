@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
+import locale from '../../utils/locale';
+
 class ContactPage extends Component {
   constructor() {
     super()
   }
   render() {
     return (
-      <div>Contact Page</div>
+      <div>{locale('contact-page')}</div>
     )
   }
 }

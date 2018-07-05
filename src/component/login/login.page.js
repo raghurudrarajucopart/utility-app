@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 
 import { loginActions } from '../../actions/login.actions';
+import locale from '../../utils/locale';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -46,21 +47,21 @@ class LoginPage extends Component {
   render() {
     return(
       <div className="login-page-container">
-        <h2>LoginPage</h2>
+        <h2>{locale('login-page')}</h2>
           <div className="login-form-container">
             <form name="loginForm">
               <div className="form-group">
-                <TextField required name="username" label="User Name" margin="normal" onChange={this.handleChange} />
+                <TextField required name="username" label={locale('user-name')} margin="normal" onChange={this.handleChange} />
               </div>
               <div className="form-group">
-                <TextField required name="password" label="Password" type="password" margin="normal" onChange={this.handleChange} />
+                <TextField required name="password" label={locale('password')} type="password" margin="normal" onChange={this.handleChange} />
               </div>
               <div className="form-group">
-                <Button variant="contained" color="primary" onClick={this.handleSubmit}> Submit </Button>
+                <Button variant="contained" color="primary" onClick={this.handleSubmit}> {locale('submit')} </Button>
               </div>
             </form>
           </div>
-          <input type="button" value="Get Users" onClick={this.handleUserList} />
+          <input type="button" value={locale('get-users')} onClick={this.handleUserList} />
           { this.props.persons.map(person => <li key={person.name}>{person.name}</li>)}
       </div>
     )

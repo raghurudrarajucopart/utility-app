@@ -18,6 +18,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { withStyles } from '@material-ui/core/styles';
 
 import { UIElelmentsActions } from '../../actions/uielements.actions';
+import locale from '../../utils/locale';
 
 injectTapEventPlugin();
 
@@ -53,11 +54,11 @@ const AppbarStyles = () => getMuiTheme({
 });
 
 const getColumnMetadata = () => [
-  column('name', 'Name', {}),
-  column('username', 'User Name', {}),
-  column('email', 'Email', {}),
-  column('phone', 'Phone', {}),
-  column('website', 'Website', {}),
+  column('name', locale('name'), {}),
+  column('username', locale('user-name'), {}),
+  column('email', locale('email'), {}),
+  column('phone', locale('phone'), {}),
+  column('website', locale('website'), {}),
 ];
 
 class UIElementsPage extends Component {
@@ -371,10 +372,11 @@ class UIElementsPage extends Component {
       display: "inline-block",
       float: "right",
     }
+    const noDataMessage = locale('There is no data to display');
     return(
       <div className="container">
         <div className="add-user">
-          <Tooltip id="tooltip-fab" title="Create User">
+          <Tooltip id="tooltip-fab" title={locale('create-user')}>
             <Button style={newButtonStyle} variant="fab" color="primary" aria-label="Add" onClick={(e) => this.handleCreateUserPopupOpen(e)} className="AddIcon">
               <AddIcon />
             </Button>
@@ -383,7 +385,7 @@ class UIElementsPage extends Component {
 
         <div>
           <div className="Table">
-            <div> UIElementsPage </div>
+            <div> {locale('ui-elements-page')} </div>
             <MuiThemeProvider muiTheme={AppbarStyles()}>
               <RowSelectTable
                 columnMetadata={getColumnMetadata()}
@@ -408,22 +410,22 @@ class UIElementsPage extends Component {
               open={this.state.open}
               onClose={this.handleClose}
               aria-labelledby="form-dialog-update-user" >
-              <DialogTitle id="form-dialog-update-user">Update User</DialogTitle>
+              <DialogTitle id="form-dialog-update-user">{locale('update-user')}</DialogTitle>
               <DialogContent>
                 {/*<DialogContentText>
                   To subscribe to this website, please enter your email address here. We will send
                   updates occasionally.
                 </DialogContentText>*/}
                 {/*<TextField name="username" label="User Name" margin="normal" value={this.state.popupDetails.username} onChange={this.handleChange} />*/}
-                <TextField autoFocus  margin="normal" name="name" id="name" label="Name" type="text" value={this.state.name} onChange={(e) => this.handleChange(e)} fullWidth />
-                <TextField margin="normal" name="username" id="username" label="User Name" type="text" value={this.state.username} onChange={(e) => this.handleChange(e)} fullWidth />
-                <TextField margin="normal" name="email" id="email" label="Email Address" type="email" value={this.state.email} onChange={(e) => this.handleChange(e)} fullWidth />
-                <TextField margin="normal" name="phone" id="phone" label="Phone Number" type="text" value={this.state.phone} onChange={(e) => this.handleChange(e)} fullWidth />
-                <TextField margin="normal" name="website" id="website" label="Website" type="text" value={this.state.website} onChange={(e) => this.handleChange(e)} fullWidth />
+                <TextField autoFocus  margin="normal" name="name" id="name" label={locale('name')} type="text" value={this.state.name} onChange={(e) => this.handleChange(e)} fullWidth />
+                <TextField margin="normal" name="username" id="username" label={locale('user-name')} type="text" value={this.state.username} onChange={(e) => this.handleChange(e)} fullWidth />
+                <TextField margin="normal" name="email" id="email" label={locale('email-address')} type="email" value={this.state.email} onChange={(e) => this.handleChange(e)} fullWidth />
+                <TextField margin="normal" name="phone" id="phone" label={locale('phone-number')} type="text" value={this.state.phone} onChange={(e) => this.handleChange(e)} fullWidth />
+                <TextField margin="normal" name="website" id="website" label={locale('website')} type="text" value={this.state.website} onChange={(e) => this.handleChange(e)} fullWidth />
               </DialogContent>
               <DialogActions>
-                <Button onClick={this.handleClose} color="primary"> Cancel </Button>
-                <Button onClick={(e) => this.handleUpdate(e)} color="primary"> Update </Button>
+                <Button onClick={this.handleClose} color="primary"> {locale('cancel')} </Button>
+                <Button onClick={(e) => this.handleUpdate(e)} color="primary"> {locale('update')} </Button>
               </DialogActions>
             </Dialog>
           </div>
@@ -432,22 +434,22 @@ class UIElementsPage extends Component {
               open={this.state.createUserPopupOpen}
               onClose={this.handleCreateUserPopupClose}
               aria-labelledby="form-dialog-create-user">
-              <DialogTitle id="form-dialog-create-user">Create User</DialogTitle>
+              <DialogTitle id="form-dialog-create-user">{ locale('create-user') }</DialogTitle>
               <DialogContent>
                 {/*<DialogContentText>
                   To subscribe to this website, please enter your email address here. We will send
                   updates occasionally.
                 </DialogContentText>*/}
                 {/*<TextField name="username" label="User Name" margin="normal" value={this.state.popupDetails.username} onChange={this.handleChange} />*/}
-                <TextField autoFocus  margin="normal" name="name" id="createUsername" label="Name" type="text" value={this.state.createUser.name} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
-                <TextField margin="normal" name="username" id="createUserusername" label="User Name" type="text" value={this.state.createUser.username} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
-                <TextField margin="normal" name="email" id="createUseremail" label="Email Address" type="email" value={this.state.createUser.email} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
-                <TextField margin="normal" name="phone" id="createUserphone" label="Phone Number" type="text" value={this.state.createUser.phone} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
-                <TextField margin="normal" name="website" id="createUserwebsite" label="Website" type="text" value={this.state.createUser.website} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
+                <TextField autoFocus  margin="normal" name="name" id="createUsername" label={locale('name')} type="text" value={this.state.createUser.name} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
+                <TextField margin="normal" name="username" id="createUserusername" label={locale('user-name')} type="text" value={this.state.createUser.username} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
+                <TextField margin="normal" name="email" id="createUseremail" label={locale('email-address')} type="email" value={this.state.createUser.email} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
+                <TextField margin="normal" name="phone" id="createUserphone" label={locale('phone-number')} type="text" value={this.state.createUser.phone} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
+                <TextField margin="normal" name="website" id="createUserwebsite" label={locale('website')} type="text" value={this.state.createUser.website} onChange={(e) => this.handleCreateUserChange(e)} fullWidth />
               </DialogContent>
               <DialogActions>
-                <Button onClick={this.handleCreateUserClose} color="primary"> Cancel </Button>
-                <Button onClick={(e) => this.handleCreateUser(e)} color="primary"> Create User </Button>
+                <Button onClick={this.handleCreateUserClose} color="primary"> {locale('cancel')} </Button>
+                <Button onClick={(e) => this.handleCreateUser(e)} color="primary"> {locale('create-user')} </Button>
               </DialogActions>
             </Dialog>
           </div>

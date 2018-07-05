@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import locale from '../../utils/locale';
+
 class DashboardPage extends Component {
   constructor(props) {
     super(props);
@@ -16,12 +18,12 @@ class DashboardPage extends Component {
   render() {
     return(
       <div>
-        <h2>DashboardPage</h2>
-        <h3><u>User Details</u></h3>
-        <div><span>Short Id</span>: <span>{this.props.userDetails.entity_id}</span></div>
-        <div><span>Mail id</span>: <span>{this.props.userDetails.entity_mail}</span></div>
-        <div><span>User Name</span>: <span>{this.props.userDetails.entity_name}</span></div>
-        <div><span>Assigned Roles</span>: <span>{this.props.userDetails.entity_roles.map( role => <li key={role}>{role}</li> )}</span></div>
+        <h2>{locale('dashboard-page')}</h2>
+        <h3><u>{locale('user-details')}</u></h3>
+        <div><span>{locale('short-id')}</span>: <span>{this.props.userDetails.entity_id}</span></div>
+        <div><span>{locale('mail-id')}</span>: <span>{this.props.userDetails.entity_mail}</span></div>
+        <div><span>{locale('user-name')}</span>: <span>{this.props.userDetails.entity_name}</span></div>
+        <div><span>{locale('assigned-roles')}</span>: <span>{this.props.userDetails.entity_roles && this.props.userDetails.entity_roles.map( role => <li key={role}>{role}</li> ) }</span></div>
       </div>
     )
   }
