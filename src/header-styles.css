@@ -1,0 +1,17 @@
+.localtime-wrapper {
+  top: 60px;
+  position: absolute;
+  right: 20px;
+  border-radius: 6px;
+  display: inline-block;
+  background-color: gainsboro;
+  padding: 2px 6px;
+}
+
+.localtime-label {
+  color: grey;
+}
+
+.localtime-data {
+  color: green;
+}

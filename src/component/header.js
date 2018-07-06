@@ -10,6 +10,7 @@ import locale, { changeLocale } from '../utils/locale';
 
 import logo from '../logo2.png';
 import '../App.css';
+import '../header-styles.css';
 
 function Transition(props) {
   return <Slide direction="down" {...props} />;
@@ -19,6 +20,7 @@ class Header extends Component{
   constructor(props, context) {
     super(props);
     this.state = {
+      date: new Date(),
        open: false,
        anchorEl: null,
        selectedLang: "English",
@@ -36,7 +38,21 @@ class Header extends Component{
     if(userSelectedLang && JSON.parse(userSelectedLang).selectedLang && JSON.parse(userSelectedLang).selectedLangCode) {
       this.setState({ "selectedLang": JSON.parse(userSelectedLang).selectedLang, "selectedLangCode": JSON.parse(userSelectedLang).selectedLangCode });
     }
+  };
+
+  componentDidMount() {
+    this.timerID = setInterval(() => this.timer(),
+      1000);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  timer() {
+    this.setState({date: new Date() });
+  }
+
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -79,6 +95,9 @@ class Header extends Component{
               <Button style={languageButtonStyle} aria-owns={anchorEl ? 'fade-menu' : null} aria-haspopup="true" onClick={this.handleMenuClick} >
                 Language: <label className="tabcolor" style={{ "fontWeight": "normal", "color": "#aacbff !important", "marginBottom": 0}}>{this.state.selectedLang}</label>
               </Button>
+              <div className="localtime-wrapper">
+                <span className="localtime-label">Local Time is </span> <span className="localtime-data">{this.state.date.toLocaleTimeString()}</span>
+              </div>
           </div>
           <Menu id="fade-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleMenuClose} TransitionComponent={Fade} >
             <MenuItem onClick={(e) => this.handleMenuChange(e, "EN")}>{this.state.langObj["EN"]}</MenuItem>
